@@ -13,22 +13,49 @@ Aras_Label.pack()
 Aras_Label.config(fg="brown")
 
 
-              ################# add text editor wijet to project##########
+
+              ############## edit  text box and add List box  wijet to project##########
 ##################################################################################################################
 ####
-
-def Save_text():
-   with open ("Output.text", "w") as F:
-      F.write(text.get(1.0,END))
-def load_text():
-   with open("Output.text", "r") as F :
-       data=F.read()
-       text.insert(INSERT,data)
-       
 text=Text(root)
 text.pack()
-Button(root , text="Save",command=Save_text).pack()
-Button(root , text="Open",command=load_text).pack()
+
+Listbox_Label=Label(root,font=12,text="Senarios",bg= "blue",fg="white")
+Listbox_Label.pack(anchor=W)
+ListBox=Listbox(root,font=12)
+ListBox.pack(anchor=W)
+ListBox.insert(1,"Senario_01")
+ListBox.insert(2,"Senario_02")
+ListBox.insert(3,"Senario_03")
+ListBox.insert(4,"Senario_04")
+ListBox.insert(5,"Senario_05")
+ListBox.insert(6,"Senario_06")
+
+def SaveSenario():
+   with open ("Senario_.text", "w") as F:
+      F.write(text.get())
+      
+def LoadSenario():
+   with open("Senario_.text", "r") as F :
+       data=F.read()
+       
+       text.insert(INSERT,data)
+       
+def ExequteSenario ():
+   with open("Senario1","r") as S :
+      Senario=S.read()
+      text.insert(INSERT,Senario)
+      
+def AddSenario ():
+   with open("Senario1","r") as S :
+      Senario=S.read()
+      text.insert(INSERT,Senario)
+      
+Button(root , text="Open",command=LoadSenario).pack()
+Button=(root,text="Save senario",command=SaveSenario).pack(anchor=W)
+Button=(root,text="Add senario",command=AddSenario).pack(anchor=W)
+Button=(root,text="Execute Senario",command=ExequteSenario).pack(anchor=W)
 ##                                                                                                              ##
 ##################################################################################################################
+
 root.mainloop()
