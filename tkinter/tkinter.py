@@ -8,7 +8,7 @@ root.title("welcom to PSS/E Asistant software")
 root.geometry("900x750")
 root.resizable(width=False, height=False)
 
-Aras_Label=Label(root,text="Aras Simlink asistance",foreground="red",font=("Titr",20),background="Green")
+Aras_Label=Label(root,text="Aras Simlink asistance",foreground="red",font=("Titr",10),background="Green")
 Aras_Label.pack()
 Aras_Label.config(fg="brown")
 
@@ -34,7 +34,7 @@ Button(root,text="Solve",command=Counter ,font=('TITR',10),bg="yellow", fg="blue
 ##                                                                                                              ##
 frame=Frame(root , width=100,height=150 , bd=5)
 frame.pack()
-open_sav_Label=Label(root,text="Please insert a *.sav file ",foreground="red",font=("Titr",20),background="Green")
+open_sav_Label=Label(root,text="Please insert a *.sav file ",foreground="red",font=("Titr",10),background="Green")
 open_sav_Label.place(x=10 , y=10, width=300,height=160)
 open_sav_Label.pack()
 Savfile=Entry(root)
@@ -52,7 +52,7 @@ Button(root,text="open **.sav file",command=open_sav ,font=('TITR',10),bg="yello
 
 ##################################################################################################################
 ##                                                                                                              ##
-select_region_label=Label(root,text="Please select a regional: ",font=("Titr",20))
+select_region_label=Label(root,text="Please select a regional: ",font=("Titr",10))
 select_region_label.pack(anchor=W)
 def Select_region():
    
@@ -75,7 +75,7 @@ Checkbutton(root,text="Moghan regional",variable=Moghan_region_Rbtn).pack(anchor
 ##################################################################################################################
 
 
-                    ############### add radio buttom to project #################
+                    ############### add radio buttom to select mode of opration in project #################
 ##################################################################################################################
 ##                                                                                                              ##
 Mode=[("Power Flow","PF"),("Optimal Power Flow","OPF"),("Fault Analys","FA"),("Dynamic Simulation","DS")]
@@ -88,5 +88,38 @@ for text,mode in Mode :
 
 ##                                                                                                              ##
 ##################################################################################################################
+
+                ############### add Scale wijet in project #################
+##################################################################################################################
+##                                                                                                              ##
+
+value_S_w1=Label(root,text="Active power: ",foreground="Green",font=("Titr",10),background="Black")
+value_S_w1.pack(anchor=S)
+def get_value_S_w1():
+   x=Scale_w1.get()
+   value_S_w1.config(text="Active power: {} MW ".format(x))
+   
+   
+Scale_w1=Scale(root,from_=0 ,to=1000,resolution=0.1)
+Scale_w1.pack(anchor=S)
+Scalb_w1_btn=Button(root,text="Get MW",command=get_value_S_w1)
+Scalb_w1_btn.pack(anchor=S)
+
+#------------------------------------------------
+
+value_S_w2=Label(root,text="Reactive power: ",foreground="red",font=("Titr",10),background="Black")
+value_S_w2.pack(anchor=S)
+def get_value_S_w2():
+   x=Scale_w2.get()
+   value_S_w2.config(text="Reactive power: {} MVAR ".format(x))
+   
+Scale_w2=Scale(root,from_=0 ,to=500,orient=HORIZONTAL,resolution=0.1)
+Scale_w2.pack(anchor=S)
+Scalb_w2_btn=Button(root,text="Get MVAR",command=get_value_S_w2)
+Scalb_w2_btn.pack(anchor=S)
+##                                                                                                              ##
+##################################################################################################################
+
+
 
 root.mainloop()
