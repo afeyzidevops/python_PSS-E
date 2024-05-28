@@ -33,7 +33,7 @@ Button(root,text="Solve",command=Counter ,font=('TITR',10),bg="yellow", fg="blue
              ############## Insert Entry to project #######################
 ##################################################################################################################
 ##                                                                                                              ##
-frame=Frame(root , width=100,height=50 , bd=5)
+frame=Frame(root , width=10,height=50 , bd=5)
 frame.pack()
 open_sav_Label=Label(root,text="Please insert a *.sav file ",foreground="red",font=("Titr",10),background="Green")
 open_sav_Label.place(x=10 , y=10, width=300,height=160)
@@ -124,7 +124,25 @@ Scalb_w2_btn=Button(root,text="Get MVAR",command=get_value_S_w2)
 Scalb_w2_btn.pack(anchor=S)
 ##                                                                                                              ##
 ##################################################################################################################
+test =Label(root, text="red", bg="red", fg="white")
+test.pack(padx=5, pady=15, side=LEFT)
+test =Label(root, text="green", bg="green", fg="white")
+test.pack(padx=5, pady=20, side=LEFT)
+test =Label(root, text="purple", bg="purple", fg="white")
+test.pack(padx=5, pady=20, side=LEFT) 
 
+              ################# add text editor wijet to project##########
+##################################################################################################################
+####
 
+def Save_text():
+   with open ("Output.text", "W") as F:
+      F.write(text.get(1.0,END))
 
+text=Text(root)
+text.pack()
+Button(root , text="Text Editor",command=Save_text).pack()
+
+##                                                                                                              ##
+##################################################################################################################
 root.mainloop()
