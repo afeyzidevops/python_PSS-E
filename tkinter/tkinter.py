@@ -12,6 +12,7 @@ Aras_Label=Label(root,text="Aras Simlink asistance",foreground="red",font=("Titr
 Aras_Label.pack()
 Aras_Label.config(fg="brown")
 
+                    ############## Change counter #######################
 ##################################################################################################################
 ##
 Buttom_solve=Label(root,text="count: ")
@@ -29,10 +30,10 @@ Button(root,text="Solve",command=Counter ,font=('TITR',10),bg="yellow", fg="blue
 ##################################################################################################################
 
 
-
+             ############## Insert Entry to project #######################
 ##################################################################################################################
 ##                                                                                                              ##
-frame=Frame(root , width=100,height=150 , bd=5)
+frame=Frame(root , width=100,height=50 , bd=5)
 frame.pack()
 open_sav_Label=Label(root,text="Please insert a *.sav file ",foreground="red",font=("Titr",10),background="Green")
 open_sav_Label.place(x=10 , y=10, width=300,height=160)
@@ -49,7 +50,7 @@ Button(root,text="open **.sav file",command=open_sav ,font=('TITR',10),bg="yello
 ##                                                                                                              ##
 ##################################################################################################################
 
-
+                    ############## add Check Box to project #######################
 ##################################################################################################################
 ##                                                                                                              ##
 select_region_label=Label(root,text="Please select a regional: ",font=("Titr",10))
@@ -95,6 +96,8 @@ for text,mode in Mode :
 
 value_S_w1=Label(root,text="Active power: ",foreground="Green",font=("Titr",10),background="Black")
 value_S_w1.pack(anchor=S)
+MW_S_Entry=Entry(root)
+MW_S_Entry.pack()
 def get_value_S_w1():
    x=Scale_w1.get()
    value_S_w1.config(text="Active power: {} MW ".format(x))
@@ -109,6 +112,8 @@ Scalb_w1_btn.pack(anchor=S)
 
 value_S_w2=Label(root,text="Reactive power: ",foreground="red",font=("Titr",10),background="Black")
 value_S_w2.pack(anchor=S)
+MVAR_S_Entry=Entry(root)
+MVAR_S_Entry.pack()
 def get_value_S_w2():
    x=Scale_w2.get()
    value_S_w2.config(text="Reactive power: {} MVAR ".format(x))
