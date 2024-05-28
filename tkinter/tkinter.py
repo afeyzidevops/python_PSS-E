@@ -53,7 +53,7 @@ Button(root,text="open **.sav file",command=open_sav ,font=('TITR',10),bg="yello
 ##################################################################################################################
 ##                                                                                                              ##
 select_region_label=Label(root,text="Please select a regional: ",font=("Titr",20))
-select_region_label.pack()
+select_region_label.pack(anchor=W)
 def Select_region():
    
    if   Ardabil_region_Rbtn.get()==1 and  Moghan_region_Rbtn.get()==0:
@@ -66,11 +66,27 @@ def Select_region():
         region="unknown"
    select_region_label.config(text="selected regional is: {} ".format(region))
    
-Button(root,text='select a regional',command=Select_region,font=('TITR',10),bg="red", fg="yellow",bd="5").pack()
+Button(root,text='select a regional',command=Select_region,font=('TITR',10),bg="red", fg="yellow",bd="5").pack(anchor=W)
 Ardabil_region_Rbtn=IntVar()
-Checkbutton(root,text="Ardabil regional",variable=Ardabil_region_Rbtn).pack()
+Checkbutton(root,text="Ardabil regional",variable=Ardabil_region_Rbtn).pack(anchor=W)
 Moghan_region_Rbtn=IntVar()
-Checkbutton(root,text="Moghan regional",variable=Moghan_region_Rbtn).pack()
+Checkbutton(root,text="Moghan regional",variable=Moghan_region_Rbtn).pack(anchor=W)
+##                                                                                                              ##
+##################################################################################################################
 
+
+                    ############### add radio buttom to project #################
+##################################################################################################################
+##                                                                                                              ##
+Mode=[("Power Flow","PF"),("Optimal Power Flow","OPF"),("Fault Analys","FA"),("Dynamic Simulation","DS")]
+RB_var1=StringVar()
+RB_var1.set("PF")
+for text,mode in Mode :
+   Radiobutton(root,text=text, variable=RB_var1, value=mode).pack(anchor=W)
+
+#Radiobutton(root,text="Power Flow" ,variable=RB_var1).pack(anchor=E)
+
+##                                                                                                              ##
+##################################################################################################################
 
 root.mainloop()
