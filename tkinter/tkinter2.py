@@ -78,7 +78,7 @@ def topLevel_1():
    
    Close_btn=tk.Button(top1,text="Close",command= top1.destroy)
    
-   label_1.pack
+   label_1.pack()
    text_1.pack(expand=True,fill=tk.BOTH)
    Open_Senario.pack()
    Save_btn.pack()
